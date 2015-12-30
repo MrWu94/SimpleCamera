@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hansheng.simplecamera">
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS" />
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".SimpleApplication"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SampleActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+
+        </activity>
+
+
+        <activity
+            android:name="us.pinguo.edit.sdk.PGEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <service
+            android:name="us.pinguo.bigdata.BDUpService"
+            android:process=":bdupload">
+        </service>
+
+        <receiver android:name="us.pinguo.bigdata.BDAlarmReceiver">
+            <intent-filter>
+                <action android:name="bd_alarm"/>
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="EDIT_SDK_KEY"
+            android:value="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"/>
+
+
+        <meta-data
+            android:name="BD_APP_ID"
+            android:value="ea8d04692735bc1f"/>
+
+        <meta-data
+            android:name="BD_APP_SECRET"
+            android:value="vCGG9QZ94tcGxTjangCc_b_VuXwmfGd2"/>
+
+
+    </application>
+
+</manifest>
